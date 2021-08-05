@@ -36,7 +36,11 @@
       }
 
       canvas.addEventListener("mousemove", draw)
-      canvas.addEventListener("mousedown", () => (isDrawing = true))
+      // mousedown event first to move the starting point to where the mouse is
+      canvas.addEventListener("mousedown", (e) => {
+        isDrawing = true
+        ;[lastX, lastY] = [e.offsetX, e.offsetY]
+      })
       canvas.addEventListener("mouseup", () => (isDrawing = false))
       canvas.addEventListener("mouseout", () => (isDrawing = false))
     </script>
