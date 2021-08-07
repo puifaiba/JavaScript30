@@ -10,7 +10,7 @@
     <script>
       const dogs = [
         {name: "Snickers", age: 2},
-        {name: "hugo", age: 8},
+        {name: "Hugo", age: 8},
       ]
 
       function makeGreen() {
@@ -24,29 +24,63 @@
 
       // Interpolated
       let emoji = "🐷"
-      console.log("Hello I am a %s string!", "🐼")
-      console.log(`Hello I am ${emoji}`)
+      console.log("Hello I am a %s!", "🐼")
+      console.log(`Hello I am Mr.${emoji}`)
 
       // Styled
-      console.log("%c I am some great text", "font-size:50px")
+      console.log(
+        "%c Wow come look at me!",
+        "font-size:50px; background: purple; color: green; text-shadow: 5px 5px 0 blue"
+      )
 
       // warning!
+      console.warn("Danger!")
 
       // Error :|
+      console.error("Oh shit! Git!")
 
       // Info
+      console.info("Medical errors is the 3rd leading cause of death. WTF")
 
       // Testing
+      console.assert(1 === 2, "That's wrong")
+
+      const p = document.querySelector("p")
+      console.assert(p.classList.contains("oops"), "Nope, try again")
 
       // clearing
+      // console.clear()
 
       // Viewing DOM Elements
+      console.log(p)
+      console.dir(p) // shows all methods avail for this object
 
       // Grouping together
+      dogs.forEach((dog) => {
+        console.group(`${dog.name}`) // use groupCollapsed to make the group start off collapse
+        console.log(`Woof! This is ${dog.name}`)
+        console.log(`${dog.name} is ${dog.age} years old`)
+        console.log(`${dog.name} is ${dog.age * 7} dog years old`)
+        console.groupEnd(`${dog.name}`)
+      })
 
       // counting
+      console.count(p) // counts how many times an object is used
+      console.count("BOONIE")
+      console.count("BOONIE")
+      console.count("BOONIE")
 
       // timing
+      console.time("fetch data")
+      fetch("https://api.github.com/users/puifaiba")
+        .then((data) => data.json())
+        .then((data) => {
+          console.timeEnd("fetch data")
+          console.log(data)
+        })
+
+      // table
+      console.table(dogs) // good for array of objects
     </script>
   </body>
 </html>
