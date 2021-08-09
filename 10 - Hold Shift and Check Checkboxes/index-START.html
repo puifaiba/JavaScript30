@@ -99,8 +99,19 @@
         ".inbox input[type='checkbox']"
       )
 
+      let lastChecked
+
       const handleCheck = (e) => {
-        console.log(e)
+        // check if shift key is down
+        // AND if they are clicking the check box
+        let inBetween = false
+        if (e.shiftKey && this.checked) {
+          //loop thru every check box
+          checkboxes.forEach((checkbox) => {
+            console.log(checkbox)
+          })
+        }
+        lastChecked = this
       }
 
       checkboxes.forEach((checkbox) => {
