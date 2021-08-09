@@ -104,11 +104,18 @@
       const handleCheck = (e) => {
         // check if shift key is down
         // AND if they are clicking the check box
-        let inBetween = false
+        let inBetween = false // flag variable
         if (e.shiftKey && this.checked) {
           //loop thru every check box
           checkboxes.forEach((checkbox) => {
             console.log(checkbox)
+            if (checkbox === this || checkbox === lastChecked) {
+              inBetween = !inBetween
+            }
+
+            if (inBetween) {
+              checkbox.checked = true
+            }
           })
         }
         lastChecked = this
