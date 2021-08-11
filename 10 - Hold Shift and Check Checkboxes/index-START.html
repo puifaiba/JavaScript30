@@ -102,6 +102,7 @@
       let lastChecked
 
       const handleCheck = (e) => {
+        console.log(e)
         // check if shift key is down
         // AND if they are clicking the check box
         let inBetween = false // flag variable
@@ -111,6 +112,7 @@
             console.log(checkbox)
             if (checkbox === this || checkbox === lastChecked) {
               inBetween = !inBetween
+              console.log("Starting to check them in between!")
             }
 
             if (inBetween) {
@@ -121,9 +123,9 @@
         lastChecked = this
       }
 
-      checkboxes.forEach((checkbox) => {
+      checkboxes.forEach((checkbox) =>
         checkbox.addEventListener("click", handleCheck)
-      })
+      )
     </script>
   </body>
 </html>
